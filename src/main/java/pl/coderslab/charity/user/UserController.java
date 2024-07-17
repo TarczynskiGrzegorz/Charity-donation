@@ -35,8 +35,8 @@ public class UserController {
 
     @PostMapping("/registry")
     public String createUser(@Valid User user, BindingResult result, Model model) {
-        if (userRepository.findByUsername(user.getUsername()) != null) {
-            result.addError(new FieldError("user","username","This user exists"));
+        if (userRepository.findByEmail(user.getEmail()) != null) {
+            result.addError(new FieldError("user","email","This user exists"));
 //            model.addAttribute("exists",true);
             return "registry";
         }
@@ -48,6 +48,9 @@ public class UserController {
     public String loginUser() {
         return "login";
     }
-
+    @GetMapping("/form")
+    public String showForm(){
+        return "form";
+    }
 
 }
