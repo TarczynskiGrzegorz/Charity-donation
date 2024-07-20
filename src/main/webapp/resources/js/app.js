@@ -171,4 +171,50 @@ document.addEventListener("DOMContentLoaded", function() {
   if (form !== null) {
     new FormSteps(form);
   }
+  let summarySpan = document.querySelector("#quantity--categories");
+  let categoriesText="";
+  const categories = document.querySelectorAll("input[type=checkbox]")
+  Array.from(categories).forEach(function(element){
+    element.addEventListener("change",onClickCheckBox);
+  })
+  function onClickCheckBox(){
+    let currentValue =this.id;
+
+    if(this.checked){
+      if(categoriesText){
+        categoriesText=categoriesText + " " + currentValue;
+      }else{
+        categoriesText=currentValue;
+      }
+      summarySpan.innerText=categoriesText;
+      console.log(summarySpan.innerText);
+    }else{
+      if(categoriesText){
+        const categoriesTextArray =categoriesText.split(" ");
+        console.log(categoriesTextArray);
+
+       let filteredArray =  categoriesTextArray.filter(function(element,index,array){
+          return element!=currentValue;
+        });
+        console.log(filteredArray);
+        categoriesText=filteredArray.join(" ");
+        summarySpan.innerText=categoriesText;
+      }else{
+        categoriesText=this.id;
+      }
+      console.log(summarySpan.innerText);
+    }
+  }
+
+
+const confirmButton = document.querySelector(".confirm");
+  confirmButton.addEventListener("click",function (){
+    let quantity = document.querySelector("#quantity");
+
+    // console.log("quantity:  " + quantity.value)
+
+    summarySpan.innerText=summarySpan.innerText + " "+ quantity.value;
+    // console.log(categories);
+  })
+
 });

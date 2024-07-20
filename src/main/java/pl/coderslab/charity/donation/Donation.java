@@ -41,7 +41,8 @@ public class Donation {
 
     @Override
     public String toString() {
-        return "Donation{" +
+        try {
+                    return "Donation{" +
                 "id=" + id +
                 ", quantity=" + quantity +
                 ", categories=" + categories.stream().map(v->v.getName()).collect(Collectors.toList()).toString() +
@@ -52,5 +53,10 @@ public class Donation {
                 ", pickUpDate=" + pickUpDate +
                 ", pickUpTime=" + pickUpTime +
                 '}';
+        }catch (Exception e){
+            return "donation";
+        }
+
+
     }
 }

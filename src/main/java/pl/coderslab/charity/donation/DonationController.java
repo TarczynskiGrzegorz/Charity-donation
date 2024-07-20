@@ -40,6 +40,7 @@ public class DonationController {
     @ResponseBody
     public String showInfo(Donation donation, Model model){
         return donation.toString();
+
     }
 
     @ModelAttribute("categories")

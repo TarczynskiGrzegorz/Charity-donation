@@ -92,6 +92,8 @@
                                                         type="checkbox"
                                                         name="categories"
                                                         value="${category.id}"
+                                                        id="${category.name}"
+
                                                 />
                                                 <span class="checkbox"></span>
                                                 <span class="description">${category.name}</span>
@@ -114,7 +116,7 @@
                 <div class="form-group form-group--inline">
                     <label>
                         Liczba 60l worków:
-                        <form:input path="quantity" />
+                        <form:input path="quantity" id="quantity"/>
 <%--                        <input type="number" name="bags" step="1" min="1" />--%>
                     </label>
                 </div>
@@ -201,7 +203,7 @@
                 </div>
                 <div class="form-group form-group--buttons">
                     <button type="button" class="btn prev-step">Wstecz</button>
-                    <button type="button" class="btn next-step">Dalej</button>
+                    <button type="button" class="btn next-step confirm">Dalej</button>
                 </div>
             </div>
 
@@ -215,8 +217,8 @@
                         <ul>
                             <li>
                                 <span class="icon icon-bag"></span>
-                                <span class="summary--text"
-                                >4 worki ubrań w dobrym stanie dla dzieci</span
+                                <span class="summary--text" id="quantity--categories"
+                                >tutaj tekst: </span
                                 >
                             </li>
 
