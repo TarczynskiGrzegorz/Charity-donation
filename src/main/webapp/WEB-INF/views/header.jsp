@@ -22,23 +22,26 @@
 
                     <li>
                         <form action="<c:url value="/logout"/>" method="post">
-                            <input class="fa fa-id-badge btn btn-success" type="submit" value="Sign out">
+                            <input  type="submit" value="Sign out">
                             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                         </form>
                     </li>
                 </ul>
             </li>
         </ul>
+
+
     </sec:authorize>
 
 
 
 
-
+    <sec:authorize access="!isAuthenticated()">
     <ul class="nav--actions">
         <li><a href="/login" class="btn btn--small btn--without-border">Zaloguj</a></li>
         <li><a href="/registry" class="btn btn--small btn--highlighted">Załóż konto</a></li>
     </ul>
+    </sec:authorize>
 
     <ul>
         <li><a href="#" class="btn btn--without-border active">Start</a></li>

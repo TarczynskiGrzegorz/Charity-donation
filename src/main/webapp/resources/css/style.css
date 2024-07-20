@@ -601,7 +601,10 @@ form .form-group--checkbox label {
 form .form-group--checkbox input {
   position: absolute;
   opacity: 0;
-  display: none;
+  /*display: none;*/
+  width: 30px;
+  height: 30px;
+  z-index: 30;
 }
 
 /* line 64, scss/modules/_forms.scss */
@@ -1145,7 +1148,7 @@ header nav ul.nav--actions .logged-user ul li:last-of-type {
 }
 
 /* line 62, scss/modules/_navigation.scss */
-header nav ul.nav--actions .logged-user ul a {
+header nav ul.nav--actions .logged-user ul a , header nav ul.nav--actions .logged-user ul input{
   display: inline-block;
   padding: 6px;
 }
