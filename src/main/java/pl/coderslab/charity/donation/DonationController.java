@@ -4,9 +4,7 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import pl.coderslab.charity.category.Category;
 import pl.coderslab.charity.category.CategoryRepository;
 import pl.coderslab.charity.institution.Institution;
@@ -37,6 +35,11 @@ public class DonationController {
         model.addAttribute("donation", donation);
 
         return "form";
+    }
+    @PostMapping("/form")
+    @ResponseBody
+    public String showInfo(Donation donation, Model model){
+        return donation.toString();
     }
 
     @ModelAttribute("categories")
