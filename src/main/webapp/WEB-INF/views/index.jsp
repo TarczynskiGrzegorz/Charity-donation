@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -14,7 +14,7 @@
 </head>
 <body>
 <header class="header--main-page">
-<%@include file="header.jsp"%>
+    <%@include file="header.jsp" %>
 
     <div class="slogan container container--90">
         <div class="slogan--item">
@@ -96,19 +96,21 @@
 
         <ul class="help--slides-items">
             <li>
-
-                <div class="col">
-                    <div class="title">Fundacja "Dbam o Zdrowie"</div>
-                    <div class="subtitle">Cel i misja: Pomoc dzieciom z ubogich rodzin.</div>
-                </div>
-
+                <c:forEach var="i" begin="0"  step="2" end="${institutions.size()/2}" items="${institutions}">
+                    <div class="col">
+                        <div class="title">${i.name}</div>
+                        <div class="subtitle">${empty i.description ? "brak opisu" : i.description}</div>
+                    </div>
+                </c:forEach>
             </li>
 
             <li>
-                <div class="col">
-                    <div class="title">Fundacja “Dla dzieci"</div>
-                    <div class="subtitle">Cel i misja: Pomoc osobom znajdującym się w trudnej sytuacji życiowej.</div>
-                </div>
+                <c:forEach var="i" begin="1" step="2"  items="${institutions}">
+                    <div class="col">
+                        <div class="title">${i.name}</div>
+                        <div class="subtitle">${empty i.description ? "brak opisu" : i.description }</div>
+                    </div>
+                </c:forEach>
 
             </li>
 
@@ -117,4 +119,4 @@
 
 </section>
 
-<%@ include file="footer.jsp"%>
+<%@ include file="footer.jsp" %>
