@@ -9,6 +9,7 @@ import pl.coderslab.charity.category.Category;
 import pl.coderslab.charity.category.CategoryRepository;
 import pl.coderslab.charity.institution.Institution;
 import pl.coderslab.charity.institution.InstitutionRepository;
+import pl.coderslab.charity.user.User;
 import pl.coderslab.charity.user.UserRepository;
 import pl.coderslab.charity.user.UserService;
 
@@ -38,14 +39,23 @@ public class DonationController {
 
         return "form";
     }
+    @GetMapping("/test")
+    @ResponseBody
+    public String testUser(@AuthenticationPrincipal UserDetails user){
+        return userRepository.findByEmail(user.getUsername()).toString();
+    }
+
 
     @PostMapping("/form")
     public String showInfo(Donation donation, Model model, @AuthenticationPrincipal UserDetails user) {
         donationRepository.save(donation);
-        userRepository.findByEmail(user.getUsername()).addDonation(donation);
+        User userPojo = userRepository.findByEmail(user.getUsername());
+        userPojo.addDonation(donation);
+        userRepository.save(userPojo);
         return "confirmation";
 
     }
+
 
     @ModelAttribute("categories")
     public List<Category> getCategories() {
