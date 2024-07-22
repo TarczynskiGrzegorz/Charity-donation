@@ -224,7 +224,7 @@
 
                             <li>
                                 <span class="icon icon-hand"></span>
-                                <span class="summary--text"
+                                <span class="summary--text" id="institution-confirmation"
                                 >Dla fundacji "Mam marzenie" w Warszawie</span
                                 >
                             </li>
