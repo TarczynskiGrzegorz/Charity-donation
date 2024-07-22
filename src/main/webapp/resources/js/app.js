@@ -226,8 +226,27 @@ document.addEventListener("DOMContentLoaded", function () {
         let institutionConfirmation = document.querySelector("#institution-confirmation");
         institutionConfirmation.innerText = institution;
 
+        const streetForm = document.querySelector("#streetToConfirm").value;
+        const streetConfirm  =document.querySelector("#street--confirm");
+        streetConfirm.innerText=streetForm;
+
+        const cityForm = document.querySelector("#cityToConfirm").value;
+        const cityConfirm  =document.querySelector("#city--confirm");
+        cityConfirm.innerText=cityForm;
+
+        const zipCodeForm = document.querySelector("#zipCodeToConfirm").value;
+        const zipCodeConfirm  =document.querySelector("#code--confirm");
+        zipCodeConfirm.innerText=zipCodeForm;
+
+        const pickUpDateForm = document.querySelector("#pickUpDateToConfirm").value;
+        const pickUpDateConfirm  =document.querySelector("#date--confirm");
+        pickUpDateConfirm.innerText=pickUpDateForm;
+
+        const pickUpTimeForm = document.querySelector("#pickUpTimeToConfirm").value;
+        const pickUpTimeConfirm  =document.querySelector("#time--confirm");
+        pickUpTimeConfirm.innerText=pickUpTimeForm;
+
         summarySpan.innerText = summarySpan.innerText + " :" + quantity.value + " szt. worków po 60L.";
-        // console.log(categories);
     })
 
 });

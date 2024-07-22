@@ -163,16 +163,16 @@
                     <div class="form-section--column">
                         <h4>Adres odbioru</h4>
                         <div class="form-group form-group--inline">
-                            <label> Ulica <form:input path="street" /> </label>
+                            <label> Ulica <form:input path="street" id="streetToConfirm"/> </label>
                         </div>
 
                         <div class="form-group form-group--inline">
-                            <label> Miasto <form:input path="city"/></label>
+                            <label> Miasto <form:input path="city" id="cityToConfirm"/></label>
                         </div>
 
                         <div class="form-group form-group--inline">
                             <label>
-                                Kod pocztowy <form:input path="zipCode" />
+                                Kod pocztowy <form:input path="zipCode" id="zipCodeToConfirm"/>
                             </label>
                         </div>
 
@@ -186,11 +186,11 @@
                     <div class="form-section--column">
                         <h4>Termin odbioru</h4>
                         <div class="form-group form-group--inline">
-                            <label> Data  <form:input type="date" path="pickUpDate"/></label>
+                            <label> Data  <form:input type="date" path="pickUpDate" id="pickUpDateToConfirm"/></label>
                         </div>
 
                         <div class="form-group form-group--inline">
-                            <label> Godzina  <form:input type="time" path="pickUpTime" /></label>
+                            <label> Godzina  <form:input type="time" path="pickUpTime" id="pickUpTimeToConfirm" /></label>
                         </div>
 
 <%--                        <div class="form-group form-group--inline">--%>
@@ -225,7 +225,7 @@
                             <li>
                                 <span class="icon icon-hand"></span>
                                 <span class="summary--text" id="institution-confirmation"
-                                >Dla fundacji "Mam marzenie" w Warszawie</span
+                                >tutaj tekst:</span
                                 >
                             </li>
                         </ul>
@@ -235,19 +235,17 @@
                         <div class="form-section--column">
                             <h4>Adres odbioru:</h4>
                             <ul>
-                                <li>Prosta 51</li>
-                                <li>Warszawa</li>
-                                <li>99-098</li>
-                                <li>123 456 789</li>
+                                <li id="street--confirm">Prosta 51</li>
+                                <li id="city--confirm">Warszawa</li>
+                                <li id="code--confirm">99-098</li>
                             </ul>
                         </div>
 
                         <div class="form-section--column">
                             <h4>Termin odbioru:</h4>
                             <ul>
-                                <li>13/12/2018</li>
-                                <li>15:40</li>
-                                <li>Brak uwag</li>
+                                <li id="date--confirm">13/12/2018</li>
+                                <li id="time--confirm">15:40</li>
                             </ul>
                         </div>
                     </div>
