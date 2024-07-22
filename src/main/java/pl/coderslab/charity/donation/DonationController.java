@@ -20,13 +20,15 @@ public class DonationController {
     private final UserRepository userRepository;
     private final CategoryRepository categoryRepository;
     private final InstitutionRepository institutionRepository;
+    private final DonationRepository donationRepository;
 
-    public DonationController(UserService userService, UserRepository userRepository, InstitutionRepository institutionRepository, CategoryRepository categoryRepository) {
+    public DonationController(UserService userService, UserRepository userRepository, InstitutionRepository institutionRepository, CategoryRepository categoryRepository, DonationRepository donationRepository) {
 
         this.userService = userService;
         this.userRepository = userRepository;
         this.categoryRepository = categoryRepository;
         this.institutionRepository = institutionRepository;
+        this.donationRepository = donationRepository;
     }
 
     @GetMapping("/form")
@@ -36,10 +38,12 @@ public class DonationController {
 
         return "form";
     }
+
     @PostMapping("/form")
-    @ResponseBody
-    public String showInfo(Donation donation, Model model){
-        return donation.toString();
+    public String showInfo(Donation donation, Model model, @AuthenticationPrincipal UserDetails user) {
+        donationRepository.save(donation);
+        userRepository.findByEmail(user.getUsername()).addDonation(donation);
+        return "confirmation";
 
     }
 

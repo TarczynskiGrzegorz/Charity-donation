@@ -246,7 +246,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const pickUpTimeConfirm  =document.querySelector("#time--confirm");
         pickUpTimeConfirm.innerText=pickUpTimeForm;
 
-        summarySpan.innerText = summarySpan.innerText + " :" + quantity.value + " szt. worków po 60L.";
+        summarySpan.innerText = summarySpan.innerText.split(" :")[0] + " :" + quantity.value + " szt. worków po 60L.";
     })
 
 });
