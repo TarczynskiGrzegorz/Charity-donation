@@ -18,13 +18,13 @@
                 Witaj <sec:authentication property="principal.username"/>
                 <ul class="dropdown">
                     <li><a href="#">Profil</a></li>
-                    <li><a href="#">Moje zbiórki</a></li>
+                    <li><a href="/donations">Moje zbiórki</a></li>
 
-                    <li>
-                        <form action="<c:url value="/logout"/>" method="post">
-                            <input  type="submit" value="Sign out">
-                            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-                        </form>
+                    <li><a href="/logout">Wyloguj</a>
+<%--                        <form action="<c:url value="/logout"/>" method="post">--%>
+<%--                            <input  type="submit" value="Sign out">--%>
+<%--                            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>--%>
+<%--                        </form>--%>
                     </li>
                 </ul>
             </li>
