@@ -1,5 +1,7 @@
 package pl.coderslab.charity.user;
 
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -22,13 +24,7 @@ public class UserController {
     }
 
     @GetMapping("/registry")
-//    @ResponseBody
     public String showForm(Model model) {
-//        User user = new User();
-//        user.setUsername("Grzegorz");
-//        user.setPassword("Grzegorz");
-//        userService.saveUser(user);
-//        return "Grzegorz";
         model.addAttribute("user", new User());
         return "registry";
     }
@@ -47,6 +43,13 @@ public class UserController {
     @GetMapping("/login")
     public String loginUser() {
         return "login";
+    }
+
+    @GetMapping("/donations")
+    public String showDonations(Model model, @AuthenticationPrincipal UserDetails user){
+        User userPojo = userRepository.findByEmail(user.getUsername());
+        model.addAttribute("donations",userPojo.getDonations());
+        return "donations";
     }
 
 }
