@@ -30,7 +30,7 @@ public class User {
     @OneToMany
     private List<Donation> donations = new ArrayList<>();
 
-    public void addDonation(Donation donation){
+    public void addDonation(Donation donation) {
         donations.add(donation);
     }
 

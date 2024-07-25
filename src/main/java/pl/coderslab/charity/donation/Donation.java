@@ -26,7 +26,7 @@ public class Donation {
     private Integer quantity;
 
     @ManyToMany
-    private List<Category> categories =new ArrayList<>();
+    private List<Category> categories = new ArrayList<>();
 
     @ManyToOne
     private Institution institution;
@@ -42,18 +42,18 @@ public class Donation {
     @Override
     public String toString() {
         try {
-                    return "Donation{" +
-                "id=" + id +
-                ", quantity=" + quantity +
-                ", categories=" + categories.stream().map(v->v.getName()).collect(Collectors.toList()).toString() +
-                ", institution=" + institution.getName() +
-                ", street='" + street + '\'' +
-                ", city='" + city + '\'' +
-                ", zipCode='" + zipCode + '\'' +
-                ", pickUpDate=" + pickUpDate +
-                ", pickUpTime=" + pickUpTime +
-                '}';
-        }catch (Exception e){
+            return "Donation{" +
+                    "id=" + id +
+                    ", quantity=" + quantity +
+                    ", categories=" + categories.stream().map(v -> v.getName()).collect(Collectors.toList()).toString() +
+                    ", institution=" + institution.getName() +
+                    ", street='" + street + '\'' +
+                    ", city='" + city + '\'' +
+                    ", zipCode='" + zipCode + '\'' +
+                    ", pickUpDate=" + pickUpDate +
+                    ", pickUpTime=" + pickUpTime +
+                    '}';
+        } catch (Exception e) {
             return "donation";
         }
 

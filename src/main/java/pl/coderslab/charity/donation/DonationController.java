@@ -39,12 +39,6 @@ public class DonationController {
 
         return "form";
     }
-    @GetMapping("/test")
-    @ResponseBody
-    public String testUser(@AuthenticationPrincipal UserDetails user){
-        return userRepository.findByEmail(user.getUsername()).toString();
-    }
-
 
     @PostMapping("/form")
     public String showInfo(Donation donation, Model model, @AuthenticationPrincipal UserDetails user) {

@@ -32,8 +32,9 @@ public class UserController {
     @PostMapping("/registry")
     public String createUser(@Valid User user, BindingResult result, Model model) {
         if (userRepository.findByEmail(user.getEmail()) != null) {
-            result.addError(new FieldError("user","email","This user exists"));
+            result.addError(new FieldError("user", "email", "This user exists"));
 //            model.addAttribute("exists",true);
+            //exists
             return "registry";
         }
         userService.saveUser(user);
@@ -46,9 +47,9 @@ public class UserController {
     }
 
     @GetMapping("/donations")
-    public String showDonations(Model model, @AuthenticationPrincipal UserDetails user){
+    public String showDonations(Model model, @AuthenticationPrincipal UserDetails user) {
         User userPojo = userRepository.findByEmail(user.getUsername());
-        model.addAttribute("donations",userPojo.getDonations());
+        model.addAttribute("donations", userPojo.getDonations());
         return "donations";
     }
 

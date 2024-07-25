@@ -13,24 +13,25 @@ import java.util.List;
 
 @Controller
 public class HomeController {
-    private final DonationRepository donationRepository ;
-    private final InstitutionRepository institutionRepository ;
+    private final DonationRepository donationRepository;
+    private final InstitutionRepository institutionRepository;
 
-    public HomeController(DonationRepository donationRepository, InstitutionRepository institutionRepository){
-        this.donationRepository=donationRepository;
-        this.institutionRepository=institutionRepository;
+    public HomeController(DonationRepository donationRepository, InstitutionRepository institutionRepository) {
+        this.donationRepository = donationRepository;
+        this.institutionRepository = institutionRepository;
     }
 
 
     @RequestMapping("/")
-    public String homeAction(Model model){
+    public String homeAction(Model model) {
 
-       List<Donation> donations =  donationRepository.findAll();
-       int bags = donations.stream().map(v->v.getQuantity()).reduce(0, (sub, el)->sub+el);
-       model.addAttribute("bags",bags);
-       model.addAttribute("donationsAmount",donations.size());
-       List<Institution> institutions = institutionRepository.findAll();
-       model.addAttribute("institutions",institutions);
+        List<Donation> donations = donationRepository.findAll();
+        int bags = donations.stream().map(v -> v.getQuantity()).reduce(0, (sub, el) -> sub + el);
+        model.addAttribute("bags", bags);
+        model.addAttribute("donationsAmount", donations.size());
+        List<Institution> institutions = institutionRepository.findAll();
+        //pageable findall;
+        model.addAttribute("institutions", institutions);
         return "index";
     }
 }
